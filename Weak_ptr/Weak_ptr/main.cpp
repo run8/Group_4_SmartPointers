@@ -66,6 +66,7 @@ int main()
     // Access the b1 object with a different shared pointer;
     sharedPointer3->printInfo();
 
+    std::weak_ptr<Box> wkptr1 = sharedPointer1;
 
     // At this point, there are multiple shared pointers pointing to the same object.
     // There could come a time in a large program that we lose track of
@@ -81,7 +82,6 @@ int main()
     // the object b1 still exists. The b1 object does not exist so the statement
     // "The b1 object is no longer "alive" is printed to the console.
 
-    std::weak_ptr<Box> wkptr1 = sharedPointer1;
     if (wkptr1.expired()) {
         std::cout<< "The b1 object is no longer \"alive\"\n";
     } else
